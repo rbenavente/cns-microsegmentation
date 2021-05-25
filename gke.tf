@@ -1,9 +1,7 @@
 # Creates the GKE cluster
 resource "google_container_cluster" "gke" {
   name     = "microsegmentation-gke"
-  location = var.region_name
-  node_version = "1.18.17-gke.100"
-  min_master_version = "1.18.17-gke.100"
+  location = var.zone_name
 
   remove_default_node_pool = true
   initial_node_count       = 1
