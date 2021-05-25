@@ -6,16 +6,16 @@ sudo gcloud auth activate-service-account --key-file=/tmp/terraform.json
 sudo gcloud container clusters get-credentials microsegmentation-gke --region us-east1
 
 # Configuring the namespaces
-kubectl create namespace sock-shop && \
-kubectl create namespace guestbook && \
-#kubectl create namespace rogue && \
-#kubectl create namespace victim && \
+sudo kubectl create namespace sock-shop && \
+sudo kubectl create namespace guestbook && \
+sudo kubectl create namespace rogue && \
+sudo kubectl create namespace victim && \
 
 # Deploying the applications
-kubectl config set-context --current --namespace=sock-shop && \
-kubectl apply -f /tmp/sock-shop.yaml && \
-kubectl config set-context --current --namespace=guestbook && \
-kubectl apply -f /tmp/guestbook.yaml && \
+sudo kubectl config set-context --current --namespace=sock-shop && \
+sudo kubectl apply -f /tmp/sock-shop.yaml && \
+sudo kubectl config set-context --current --namespace=guestbook && \
+sudo kubectl apply -f /tmp/guestbook.yaml && \
 #kubectl config set-context --current --namespace=rogue && \
 #kubectl apply -f /tmp/rogue.yaml && \
 #kubectl config set-context --current --namespace=victim && \
