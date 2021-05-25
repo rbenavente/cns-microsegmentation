@@ -40,7 +40,8 @@ resource "google_compute_instance" "bastion" {
 
   provisioner "remote-exec" {
     inline = [
-      "sudo chmod +x /tmp/bastion.sh"
+      "sudo chmod +x /tmp/bastion.sh",
+      "sudo chmod +x /tmp/k8s.sh"
     ]
   }
     connection {
