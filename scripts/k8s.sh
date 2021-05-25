@@ -1,7 +1,9 @@
 #!/bin/bash
 
+#Authorizes the instance to use the terraform Service Account
+sudo gcloud auth activate-service-account --key-file=/tmp/terraform.json
 # Connecting to the K8s cluster
-gcloud container clusters get-credentials microsegmentation-gke --region us-east1 --project "project name"
+sudo gcloud container clusters get-credentials microsegmentation-gke --region us-east1
 
 # Configuring the namespaces
 kubectl create namespace sock-shop && \
