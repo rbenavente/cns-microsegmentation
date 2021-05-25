@@ -44,7 +44,7 @@ resource "google_container_node_pool" "nodes" {
       env = var.project_name
     }
 
-    machine_type = "n1-standard-1"
+    machine_type = var.gke_machine_size
     tags         = ["gke-node", "${var.project_name}-gke"]
     metadata = {
       disable-legacy-endpoints = "true"
