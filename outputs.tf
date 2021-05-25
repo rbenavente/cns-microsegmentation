@@ -31,5 +31,4 @@ output "gke_cluster_ca_certificate" {
 
 output "gke_host" {
   value     = google_container_cluster.gke.endpoint
-  sensitive = true
 }
