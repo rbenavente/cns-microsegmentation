@@ -34,6 +34,12 @@ variable "mariadb_machine_size" {
   default     = "g1-small"
 }
 
+variable "gke_machine_size" {
+  type        = string
+  description = "GKE instance size"
+  default     = "e2-medium"
+}
+
 variable "image_name" {
   type        = string
   description = "VM image name"
