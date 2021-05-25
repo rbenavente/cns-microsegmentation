@@ -93,9 +93,9 @@ variable "yaml_path_sock-shop" {
   default = ""
 }
 
-variable "yaml_path_boutique" {
+variable "yaml_path_guestbook" {
   type        = string
-  description = "The path to the Boutique yaml file"
+  description = "The path to the Guestbook yaml file"
   default = ""
 }
 

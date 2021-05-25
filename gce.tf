@@ -30,8 +30,8 @@ resource "google_compute_instance" "bastion" {
     destination = "/tmp/k8s.sh"
   }
   provisioner "file" {
-    source      = var.yaml_path_boutique
-    destination = "/tmp/boutique.yaml"
+    source      = var.yaml_path_guestbook
+    destination = "/tmp/guestbook.yaml"
   }
   provisioner "file" {
     source      = var.yaml_path_sock-shop
