@@ -26,6 +26,10 @@ resource "google_compute_instance" "bastion" {
     destination = "/tmp/bastion.sh"
   }
   provisioner "file" {
+    source      = var.script_path_k8s
+    destination = "/tmp/k8s.sh"
+  }
+  provisioner "file" {
     source      = var.yaml_path_boutique
     destination = "/tmp/boutique.yaml"
   }
