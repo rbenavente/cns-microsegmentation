@@ -41,4 +41,5 @@ sudo chown -R www-data:www-data wp-content && \
 sudo chown -Rv www-data.www-data /var/www/html/ && \
 sudo chmod -R 755 wp-content && \
 sudo rm -rf index.html && \
+sudo systemctl enable apache2 && \
 sudo systemctl start apache2
