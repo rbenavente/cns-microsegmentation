@@ -18,6 +18,10 @@ resource "google_container_cluster" "gke" {
       issue_client_certificate = false
     }
   }
+
+  depends_on = [
+    google_compute_instance.mariadb
+  ]
 }
 
 # Configure a Managed Node Pool
