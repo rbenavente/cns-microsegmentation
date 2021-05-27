@@ -39,6 +39,10 @@ resource "google_compute_instance" "bastion" {
     source      = var.yaml_path_sock-shop
     destination = "/tmp/sock-shop.yaml"
   }
+  provisioner "file" {
+    source      = var.yaml_path_service_account
+    destination = "/tmp/terraform.json"
+  }
 
   provisioner "remote-exec" {
     inline = [
