@@ -3,3 +3,5 @@
 *.iml
 .DS_Store
 *.1
+*.hcl
+*.0_x5
