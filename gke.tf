@@ -29,7 +29,7 @@ resource "google_container_cluster" "gke" {
 # Configure a Managed Node Pool
 resource "google_container_node_pool" "nodes" {
   name       = "${google_container_cluster.gke.name}-node-pool"
-  location   = var.region_name
+  location   = var.zone_name
   cluster    = google_container_cluster.gke.name
   node_count = var.gke_num_nodes
 
