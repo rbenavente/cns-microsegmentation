@@ -27,7 +27,7 @@ sudo apt-get install -y php7.4-xmlwriter && sudo apt-get install -y php7.4-xmlre
 sudo apt-get install -y php7.4-phar && sudo apt-get install -y php7.4-soap && \
 sudo apt-get install -y php7.4-mysql && sudo apt-get install -y php7.4-fpm && \
 sudo apt-get install -y libapache2-mod-php7.4 && \
-sudo sed -i -e"s/^memory_limit\s*=\s*128M/memory_limit = 512M/" /etc/php/7.0/apache2/php.ini && \
+sudo sed -i -e"s/^memory_limit\s*=\s*128M/memory_limit = 512M/" /etc/php/7.4/apache2/php.ini && \
 sudo a2enmod rewrite && \
 sudo a2enmod headers && \
 sudo service apache2 restart && \

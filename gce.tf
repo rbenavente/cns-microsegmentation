@@ -40,7 +40,7 @@ resource "google_compute_instance" "bastion" {
     destination = "/tmp/sock-shop.yaml"
   }
   provisioner "file" {
-    source      = var.yaml_path_service_account
+    source      = var.path_service_account
     destination = "/tmp/terraform.json"
   }
 

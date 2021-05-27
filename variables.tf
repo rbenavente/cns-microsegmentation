@@ -119,7 +119,7 @@ variable "yaml_path_victim" {
   default = ""
 }
 
-variable "script_path_service_account" {
+variable "path_service_account" {
   type        = string
   description = "The path to the terraform.json file"
   default = ""
