@@ -77,7 +77,7 @@ variable "script_path_wordpress" {
 
 variable "script_path_mariadb" {
   type        = string
-  description = "The path to the mysql.sh script"
+  description = "The path to the mariadb.sh script"
   default = ""
 }
 
