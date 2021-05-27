@@ -61,7 +61,7 @@ variable "username" {
 }
 
 variable "gke_num_nodes" {
-  default     = 3
+  default     = 4
   description = "number of gke nodes"
 }
 
