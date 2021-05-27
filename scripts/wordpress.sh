@@ -1,4 +1,5 @@
 #!/bin/bash
+# Author - Alexandre S. Cezar
 
 # Installing Wordpress and setting up the environment
 sudo apt-get update -y && sudo apt-get install -y software-properties-common && \

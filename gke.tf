@@ -1,3 +1,5 @@
+# Author - Alexandre S. Cezar
+
 # Creates the GKE cluster
 resource "google_container_cluster" "gke" {
   name     = "microsegmentation-gke"

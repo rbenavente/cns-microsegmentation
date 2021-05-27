@@ -1,4 +1,5 @@
 #!/bin/bash
+# Author - Alexandre S. Cezar
 
 # Installing kubectl
 sudo apt-get update && sudo apt-get install -y apt-transport-https && \

@@ -1,4 +1,5 @@
 #!/bin/bash
+# Author - Alexandre S. Cezar
 
 #Authorizes the instance to use the terraform Service Account
 sudo gcloud auth activate-service-account --key-file=/tmp/terraform.json

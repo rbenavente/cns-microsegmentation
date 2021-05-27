@@ -1,3 +1,5 @@
+# Author - Alexandre S. Cezar
+
 # Create the GCE Bastion instance
 resource "google_compute_instance" "bastion" {
   name         = "vm-bastion"

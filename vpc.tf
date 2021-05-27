@@ -1,3 +1,5 @@
+# Author - Alexandre S. Cezar
+
 # Creates the VPC
 resource "google_compute_network" "vpc" {
   name                    = var.project_name

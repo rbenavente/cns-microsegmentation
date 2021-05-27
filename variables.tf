@@ -1,3 +1,5 @@
+# Author - Alexandre S. Cezar
+
 variable "project_name" {
   type        = string
   description = "Microsegmentation class project name."

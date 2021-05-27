@@ -1,3 +1,5 @@
+# Author - Alexandre S. Cezar
+
 terraform {
   required_providers {
     google = {
