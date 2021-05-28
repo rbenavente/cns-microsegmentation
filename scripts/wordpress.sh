@@ -2,7 +2,8 @@
 # Author - Alexandre S. Cezar
 
 # Installing Wordpress and setting up the environment
-sudo apt-get update -y && sudo apt-get install -y software-properties-common && \
+sudo apt-get update -y && sudo apt-get upgrade && \
+sudo apt-get install -y software-properties-common && \
 sudo apt-get install -y apache2 && sudo apt-get install -y apache2-bin && \
 sudo apt-get install -y wget && sudo apt-get -y install mariadb-client && \
 #sudo locale-gen en_US.UTF-8 && \
@@ -42,5 +43,6 @@ sudo chown -R www-data:www-data wp-content && \
 sudo chown -Rv www-data.www-data /var/www/html/ && \
 sudo chmod -R 755 wp-content && \
 sudo rm -rf index.html && \
+sudo systemctl stop ufw && sudo systemctl disable ufw && \
 sudo systemctl enable apache2 && \
 sudo systemctl start apache2
