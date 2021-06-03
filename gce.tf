@@ -40,6 +40,14 @@ resource "google_compute_instance" "bastion" {
     destination = "/tmp/sock-shop.yaml"
   }
   provisioner "file" {
+    source      = var.yaml_path_rogue
+    destination = "/tmp/rogue.yaml"
+  }
+  provisioner "file" {
+    source      = var.yaml_path_victim
+    destination = "/tmp/victim.yaml"
+  }
+  provisioner "file" {
     source      = var.path_service_account
     destination = "/tmp/terraform.json"
   }

@@ -18,7 +18,7 @@ sudo kubectl config set-context --current --namespace=sock-shop && \
 sudo kubectl apply -f /tmp/sock-shop.yaml && \
 sudo kubectl config set-context --current --namespace=guestbook && \
 sudo kubectl apply -f /tmp/guestbook.yaml && \
-#kubectl config set-context --current --namespace=rogue && \
-#kubectl apply -f /tmp/rogue.yaml && \
-#kubectl config set-context --current --namespace=victim && \
-#kubectl apply -f /tmp/victim.yaml
+sudo kubectl config set-context --current --namespace=rogue && \
+sudo kubectl apply -f /tmp/rogue.yaml && \
+sudo kubectl config set-context --current --namespace=victim && \
+sudo kubectl apply -f /tmp/victim.yaml
