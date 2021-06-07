@@ -83,7 +83,7 @@ resource "google_compute_firewall" "deny-lab09-outbound-prisma" {
     protocol = "all"
   }
 
-  destination_ranges = ["3.131.177.126","3.134.230.159","3.23.199.55","54.174.94.231","52.86.60.186"]
+  destination_ranges = ["3.131.177.126/32","3.134.230.159/32","3.23.199.55/32","54.174.94.231/32","52.86.60.186/32"]
   target_tags = [
     "lab09"]
 }
