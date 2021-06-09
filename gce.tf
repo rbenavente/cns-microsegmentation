@@ -24,27 +24,27 @@ resource "google_compute_instance" "bastion" {
 
   # Connect to the Bastion instance via Terraform and remotely executes the install script using SSH
   provisioner "file" {
-    source      = var.script_path_bastion
+    source      = "${var.folder_scripts}/bastion.sh"
     destination = "/tmp/bastion.sh"
   }
   provisioner "file" {
-    source      = var.script_path_k8s
+    source      = "${var.folder_scripts}/k8s.sh"
     destination = "/tmp/k8s.sh"
   }
   provisioner "file" {
-    source      = var.yaml_path_guestbook
+    source      = "${var.folder_scripts}/guestbook.yaml"
     destination = "/tmp/guestbook.yaml"
   }
   provisioner "file" {
-    source      = var.yaml_path_sock-shop
+    source      = "${var.folder_scripts}/sock-shop.yaml"
     destination = "/tmp/sock-shop.yaml"
   }
   provisioner "file" {
-    source      = var.yaml_path_rogue
+    source      = "${var.folder_scripts}/rogue.yaml"
     destination = "/tmp/rogue.yaml"
   }
   provisioner "file" {
-    source      = var.yaml_path_victim
+    source      = "${var.folder_scripts}/victim.yaml"
     destination = "/tmp/victim.yaml"
   }
   provisioner "file" {
@@ -58,13 +58,13 @@ resource "google_compute_instance" "bastion" {
       "sudo chmod +x /tmp/k8s.sh"
     ]
   }
-    connection {
-      type = "ssh"
-      host = google_compute_instance.bastion.network_interface[0].access_config.0.nat_ip
-      user = var.username
-      private_key = file(var.private_key_path)
-    }
+  connection {
+    type = "ssh"
+    host = google_compute_instance.bastion.network_interface[0].access_config.0.nat_ip
+    user = var.username
+    private_key = file(var.private_key_path)
   }
+}
 
 # Create the GCE Wordpress instance
 resource "google_compute_instance" "wordpress" {
@@ -99,7 +99,7 @@ resource "google_compute_instance" "wordpress" {
 
   # Connect to the Wordpress instance via Terraform and remotely executes the install script using SSH
   provisioner "file" {
-    source      = var.script_path_wordpress
+    source      = "${var.folder_scripts}/wordpress.sh"
     destination = "/tmp/wordpress.sh"
   }
   provisioner "remote-exec" {
@@ -107,13 +107,13 @@ resource "google_compute_instance" "wordpress" {
       "sudo chmod +x /tmp/wordpress.sh"
     ]
   }
-    connection {
-      type = "ssh"
-      host = google_compute_instance.wordpress.network_interface[0].access_config.0.nat_ip
-      user = var.username
-      private_key = file(var.private_key_path)
-    }
+  connection {
+    type = "ssh"
+    host = google_compute_instance.wordpress.network_interface[0].access_config.0.nat_ip
+    user = var.username
+    private_key = file(var.private_key_path)
   }
+}
 
 # Create the GCE MariaDB instance
 resource "google_compute_instance" "mariadb" {
@@ -148,11 +148,11 @@ resource "google_compute_instance" "mariadb" {
 
   # Connect to the MariaDB instance via Terraform and remotely executes the install script using SSH
   provisioner "file" {
-    source      = var.script_path_mariadb
+    source      = "${var.folder_scripts}/mariadb.sh"
     destination = "/tmp/mariadb.sh"
   }
   provisioner "file" {
-    source      = var.script_path_create_db
+    source      = "${var.folder_scripts}/create_db.sql"
     destination = "/tmp/create_db.sql"
   }
 

@@ -65,57 +65,9 @@ variable "gke_num_nodes" {
   description = "number of gke nodes"
 }
 
-variable "script_path_bastion" {
+variable "folder_scripts" {
   type        = string
-  description = "The path to the bastion.sh script"
-  default = ""
-}
-
-variable "script_path_wordpress" {
-  type        = string
-  description = "The path to the wordpress.sh script"
-  default = ""
-}
-
-variable "script_path_mariadb" {
-  type        = string
-  description = "The path to the mariadb.sh script"
-  default = ""
-}
-
-variable "script_path_k8s" {
-  type        = string
-  description = "The path to the k8s.sh script"
-  default = ""
-}
-
-variable "script_path_create_db" {
-  type        = string
-  description = "The path to the create_db script"
-  default = ""
-}
-
-variable "yaml_path_sock-shop" {
-  type        = string
-  description = "The path to the Sock-Shop yaml file"
-  default = ""
-}
-
-variable "yaml_path_guestbook" {
-  type        = string
-  description = "The path to the Guestbook yaml file"
-  default = ""
-}
-
-variable "yaml_path_rogue" {
-  type        = string
-  description = "The path to the Rogue yaml file"
-  default = ""
-}
-
-variable "yaml_path_victim" {
-  type        = string
-  description = "The path to the Victim yaml file"
+  description = "The path to the script folder"
   default = ""
 }
 
