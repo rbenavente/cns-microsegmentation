@@ -1,0 +1,87 @@
+APIVersion: 0
+data:
+  externalnetworks:
+    - associatedTags:
+        - 'externalnetwork:name=Bastion Host'
+      entries:
+        - 192.168.120.12/32
+      name: Bastion Host
+      propagate: true
+    - associatedTags:
+        - 'externalnetwork:name=DHCP Server'
+      description: Internal DHCP Server
+      entries:
+        - 0.0.0.0/0
+      name: DHCP Server
+      propagate: true
+    - associatedTags:
+        - 'externalnetwork:name=DNS server'
+      description: Internal DNS Server
+      entries:
+        - 0.0.0.0/0
+      name: DNS server
+      propagate: true
+    - associatedTags:
+        - 'externalnetwork:name=Google Services'
+      description: Google Internal Endpoints
+      entries:
+        - '*.google.com'
+        - '*.googleapis.com'
+      name: Google Services
+      propagate: true
+    - associatedTags:
+        - 'externalnetwork:name=Kubernetes Nodes'
+      description: Kubernetes Nodes
+      entries:
+        - 192.168.120.6/32
+        - 192.168.120.7/32
+        - 192.168.120.8/32
+        - 192.168.120.9/32
+      name: Kubernetes Nodes
+      propagate: true
+    - associatedTags:
+        - 'externalnetwork:name=Metadata Server'
+      entries:
+        - 169.254.169.254/32
+      name: Metadata Service
+      propagate: true
+    - associatedTags:
+        - 'externalnetwork:name=NTP Server'
+      description: Internal NTP Server
+      entries:
+        - 0.0.0.0/0
+      name: NTP Server
+      propagate: true
+    - associatedTags:
+        - 'externalnetwork:name=Prisma Cloud Service'
+      description: Prisma Cloud domains
+      entries:
+        - '*.prismacloud.io'
+        - '*.aporeto.com'
+      name: Prisma Cloud Service
+      propagate: true
+    - associatedTags:
+        - 'externalnetwork:name=Ubuntu Update Service'
+      description: Ubuntu Services
+      entries:
+        - '*.ubuntu.com'
+        - '*.launchpad.net'
+      name: Ubuntu Update Service
+      propagate: true
+    - associatedTags:
+        - 'externalnetwork:name=VPC Subnet'
+      description: Internal Network
+      entries:
+        - 192.168.120.0/24
+      name: VPC Subnet
+      propagate: true
+    - associatedTags:
+        - 'externalnetwork:name=Wordpress'
+      description: Wordpress APIs
+      entries:
+        - '*.wordpress.org'
+      name: Wordpress
+      propagate: true
+identities:
+  - externalnetwork
+label: network_ists
