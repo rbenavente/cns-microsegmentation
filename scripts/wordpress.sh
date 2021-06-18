@@ -2,7 +2,7 @@
 # Author - Alexandre S. Cezar
 
 # Installing Wordpress and setting up the environment
-sudo apt-get update -y && sudo apt-get upgrade && \
+sudo apt-get update -y && sudo apt-get upgrade -y && \
 sudo apt-get install -y software-properties-common && \
 sudo apt-get install -y apache2 && sudo apt-get install -y apache2-bin && \
 sudo apt-get install -y wget && sudo apt-get -y install mariadb-client && \
@@ -10,7 +10,7 @@ sudo apt-get install -y wget && sudo apt-get -y install mariadb-client && \
 #export LANG=en_US.UTF-8 && \
 #sudo apt-get update && \
 sudo add-apt-repository -y ppa:ondrej/php && \
-sudo apt-get update && \
+sudo apt-get update -y && \
 sudo apt-get install -y php7.4 && sudo apt-get install -y php7.4-curl && \
 sudo apt-get install -y php7.4-bcmath && sudo apt-get install -y php7.4-intl && \
 sudo apt-get install -y php7.4-gd && sudo apt-get install -y php7.4-dom && \

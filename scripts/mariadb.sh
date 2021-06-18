@@ -2,7 +2,7 @@
 # Author - Alexandre S. Cezar
 
 # Install the MariaDB Server and create the Wordpress DB and user
-sudo apt-get update && sudo apt-get upgrade && \
+sudo apt-get update -y && sudo apt-get upgrade -y && \
 sudo apt-get install -y mariadb-server && \
 sudo systemctl stop ufw && sudo systemctl disable ufw && \
 sudo systemctl enable mariadb.service && \
