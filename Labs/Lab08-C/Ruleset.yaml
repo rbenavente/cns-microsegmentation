@@ -1,0 +1,39 @@
+  sudo apoctl api create networkrulesetpolicy \
+    --namespace /851938053131285504/acezar-cns-microsegmentation/acezar-Lab08 \
+    --data '{
+  "propagate": true,
+  "name": "Lab08-Policy",
+  "subject": [
+    [
+        "@org:group=acezar-Lab08",
+        "@org:cloudaccount=acezar-cns-microsegmentation",
+        "@org:tenant=851938053131285504"
+    ]
+  ],
+  "incomingRules": [
+    {
+      "action": "Allow",
+      "object": [
+        [
+            "$identity=processingunit"
+        ]
+      ],
+      "protocolPorts": [
+          "any"
+      ]
+    }
+  ],
+  "outgoingRules": [
+    {
+      "action": "Allow",
+      "object": [
+        [
+            "$identity=processingunit"
+        ]
+      ],
+      "protocolPorts": [
+          "any"
+      ]
+    }
+  ]
+  }'
