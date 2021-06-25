@@ -2,7 +2,7 @@
 
 variable "project_name" {
   type        = string
-  description = "Microsegmentation class project name."
+  description = "Microsegmentation class project ID."
   default     = ""
 }
 
@@ -67,7 +67,7 @@ variable "gke_num_nodes" {
 
 variable "folder_scripts" {
   type        = string
-  description = "The path to the script folder"
+  description = "The path to the scripts folder"
   default = ""
 }
 
