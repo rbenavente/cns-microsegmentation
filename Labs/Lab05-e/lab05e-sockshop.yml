@@ -9,7 +9,7 @@ data:
             - - 'externalnetwork:name=Internet'
           observationEnabled: false
           protocolPorts:
-            - tcp/8079
+            - tcp/80
       name: Allow Internet - FrontEnd
       propagate: true
       subject:
