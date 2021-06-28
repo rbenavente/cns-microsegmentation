@@ -1,0 +1,21 @@
+APIVersion: 0
+data:
+  networkrulesetpolicies:
+    - incomingRules:
+        - action: Allow
+          logsDisabled: false
+          object:
+            - - $identity=processingunit
+              - 'externalnetwork:name=Kubernetes Nodes'
+          observationEnabled: false
+          protocolPorts:
+            - any
+      name: Allow Kubelet
+      propagate: true
+      subject:
+        - - '@org:cloudaccount=acezar-cns-microsegmentation'
+          - '@org:group=GKE'
+          - '@org:tenant=807152304871829504'  
+identities:
+  - networkrulesetpolicy
+label: Lab05e-GKE

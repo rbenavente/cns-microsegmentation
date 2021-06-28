@@ -1,0 +1,49 @@
+APIVersion: 0
+data:
+  networkrulesetpolicies:
+    - description: All traffic between pods in the namespace
+      incomingRules:
+        - action: Allow
+          logsDisabled: false
+          object:
+            - - $identity=processingunit
+              - '@org:kubernetes=guestbook'
+          observationEnabled: false
+          protocolPorts:
+            - any
+      name: Allow Internal Namespace
+      outgoingRules:
+        - action: Allow
+          logsDisabled: false
+          object:
+            - - $identity=processingunit
+              - '@org:kubernetes=guestbook'
+          observationEnabled: false
+          protocolPorts:
+            - any
+      propagate: true
+      subject:
+        - - '@org:cloudaccount=acezar-cns-microsegmentation'
+          - '@org:group=GKE'
+          - '@org:kubernetes=guestbook'
+          - '@org:tenant=807152304871829504'
+    - description: Allow traffic to reach the front-end pod
+      incomingRules:
+        - action: Allow
+          logsDisabled: false
+          object:
+            - - 'externalnetwork:name=Internet'
+          observationEnabled: false
+          protocolPorts:
+            - tcp/80
+      name: Allow Internet
+      propagate: true
+      subject:
+        - - '$image=gcr.io/google-samples/gb-frontend:v4'
+          - '@org:cloudaccount=acezar-cns-microsegmentation'
+          - '@org:group=GKE'
+          - '@org:kubernetes=guestbook'
+          - '@org:tenant=807152304871829504'
+identities:
+  - networkrulesetpolicy
+label: lab05e-guestbook

@@ -1,0 +1,50 @@
+APIVersion: 0
+data:
+  networkrulesetpolicies:
+    - description: Allow traffic to reach the front-end pod
+      incomingRules:
+        - action: Allow
+          logsDisabled: false
+          object:
+            - - 'externalnetwork:name=Internet'
+          observationEnabled: false
+          protocolPorts:
+            - tcp/8079
+      name: Allow Internet - FrontEnd
+      propagate: true
+      subject:
+        - - '$image=weaveworksdemos/front-end:0.3.12'
+          - '@org:cloudaccount=acezar-cns-microsegmentation'
+          - '@org:group=GKE'
+          - '@org:kubernetes=sock-shop'
+          - '@org:tenant=807152304871829504'
+    - description: Allow traffic between resources in the namespace
+      incomingRules:
+        - action: Allow
+          logsDisabled: false
+          object:
+            - - $identity=processingunit
+              - '@org:kubernetes=sock-shop'
+          observationEnabled: false
+          protocolPorts:
+            - any
+      name: Allow internal namespace traffic
+      outgoingRules:
+        - action: Allow
+          logsDisabled: false
+          object:
+            - - $identity=processingunit
+              - '@org:kubernetes=sock-shop'
+          observationEnabled: false
+          protocolPorts:
+            - any
+      propagate: true
+      subject:
+        - - $identity=processingunit
+          - '@org:cloudaccount=acezar-cns-microsegmentation'
+          - '@org:group=GKE'
+          - '@org:kubernetes=sock-shop'
+          - '@org:tenant=807152304871829504'
+identities:
+  - networkrulesetpolicy
+label: lab05e-sock-shop
