@@ -9,13 +9,13 @@ resource "google_compute_instance" "bastion" {
   boot_disk {
     initialize_params {
       image = var.image_name
-      size = 20
+      size  = 20
     }
   }
 
   network_interface {
-    network = google_compute_network.vpc.name
-    subnetwork   = google_compute_subnetwork.subnet.id
+    network    = google_compute_network.vpc.name
+    subnetwork = google_compute_subnetwork.subnet.id
     access_config {
     }
   }
@@ -59,10 +59,13 @@ resource "google_compute_instance" "bastion" {
     ]
   }
   connection {
-    type = "ssh"
-    host = google_compute_instance.bastion.network_interface[0].access_config.0.nat_ip
-    user = var.username
+    type        = "ssh"
+    host        = google_compute_instance.bastion.network_interface[0].access_config.0.nat_ip
+    user        = var.username
     private_key = file(var.private_key_path)
+  }
+  labels = {
+    yor_trace = "7d4918fa-1ad7-4f65-9083-b21aa87ccc8b"
   }
 }
 
@@ -75,13 +78,13 @@ resource "google_compute_instance" "wordpress" {
   boot_disk {
     initialize_params {
       image = var.image_name
-      size = 20
+      size  = 20
     }
   }
 
   network_interface {
-    network = google_compute_network.vpc.name
-    subnetwork   = google_compute_subnetwork.subnet.id
+    network    = google_compute_network.vpc.name
+    subnetwork = google_compute_subnetwork.subnet.id
     access_config {
     }
   }
@@ -90,7 +93,8 @@ resource "google_compute_instance" "wordpress" {
 
   labels = {
     application = "wordpress",
-    role = "frontend"
+    role        = "frontend"
+    yor_trace   = "d00483a4-9a1f-40c3-a22a-88cc29c780a4"
   }
 
   depends_on = [
@@ -108,9 +112,9 @@ resource "google_compute_instance" "wordpress" {
     ]
   }
   connection {
-    type = "ssh"
-    host = google_compute_instance.wordpress.network_interface[0].access_config.0.nat_ip
-    user = var.username
+    type        = "ssh"
+    host        = google_compute_instance.wordpress.network_interface[0].access_config.0.nat_ip
+    user        = var.username
     private_key = file(var.private_key_path)
   }
 }
@@ -124,13 +128,13 @@ resource "google_compute_instance" "mariadb" {
   boot_disk {
     initialize_params {
       image = var.image_name
-      size = 20
+      size  = 20
     }
   }
 
   network_interface {
-    network = google_compute_network.vpc.name
-    subnetwork   = google_compute_subnetwork.subnet.id
+    network    = google_compute_network.vpc.name
+    subnetwork = google_compute_subnetwork.subnet.id
     access_config {
     }
   }
@@ -139,7 +143,8 @@ resource "google_compute_instance" "mariadb" {
 
   labels = {
     application = "wordpress",
-    role = "backend"
+    role        = "backend"
+    yor_trace   = "876a49c8-c884-4749-8d89-398623bac732"
   }
 
   depends_on = [
@@ -162,9 +167,9 @@ resource "google_compute_instance" "mariadb" {
     ]
   }
   connection {
-    type = "ssh"
-    host = google_compute_instance.mariadb.network_interface[0].access_config.0.nat_ip
-    user = var.username
+    type        = "ssh"
+    host        = google_compute_instance.mariadb.network_interface[0].access_config.0.nat_ip
+    user        = var.username
     private_key = file(var.private_key_path)
   }
 }
